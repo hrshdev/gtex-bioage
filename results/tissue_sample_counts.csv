@@ -1,0 +1,69 @@
+tissue,sample_count,domain
+Muscle - Skeletal,808,non_neural
+Whole Blood,788,non_neural
+Skin - Sun Exposed (Lower leg),745,non_neural
+Adipose - Subcutaneous,701,non_neural
+Thyroid,683,non_neural
+Artery - Tibial,681,non_neural
+Nerve - Tibial,660,neural
+Skin - Not Sun Exposed (Suprapubic),651,non_neural
+Cells - Cultured fibroblasts,639,non_neural
+Esophagus - Mucosa,612,non_neural
+Lung,603,non_neural
+Adipose - Visceral (Omentum),587,non_neural
+Esophagus - Muscularis,560,non_neural
+Breast - Mammary Tissue,514,non_neural
+Colon - Transverse,478,non_neural
+Artery - Aorta,471,non_neural
+Heart - Atrial Appendage,461,non_neural
+Heart - Left Ventricle,451,non_neural
+Colon - Sigmoid,419,non_neural
+Testis,414,non_neural
+Stomach,406,non_neural
+Esophagus - Gastroesophageal Junction,403,non_neural
+Pancreas,361,non_neural
+Cells - EBV-transformed lymphocytes,318,non_neural
+Pituitary,313,non_neural
+Brain - Caudate (basal ganglia),300,neural
+Adrenal Gland,295,non_neural
+Brain - Nucleus accumbens (basal ganglia),285,neural
+Prostate,282,non_neural
+Brain - Cerebellar Hemisphere,277,neural
+Spleen,276,non_neural
+Brain - Cortex,270,neural
+Brain - Frontal Cortex (BA9),269,neural
+Artery - Coronary,267,non_neural
+Brain - Cerebellum,266,neural
+Liver,261,non_neural
+Brain - Hypothalamus,257,neural
+Brain - Hippocampus,255,neural
+Brain - Putamen (basal ganglia),254,neural
+Brain - Anterior cingulate cortex (BA24),233,neural
+Small Intestine - Terminal Ileum,207,non_neural
+Brain - Spinal cord (cervical c-1),204,neural
+Ovary,191,non_neural
+Brain - Substantia nigra,183,neural
+Brain - Amygdala,181,neural
+Minor Salivary Gland,181,non_neural
+Vagina,168,non_neural
+Uterus,152,non_neural
+Kidney - Cortex,104,non_neural
+Bladder,76,non_neural
+Stomach - Mixed Cell,29,non_neural
+Stomach - Mucosa,29,non_neural
+Fallopian Tube,27,non_neural
+Stomach - Muscularis,26,non_neural
+Cervix - Ectocervix,23,non_neural
+Cervix - Endocervix,21,non_neural
+Kidney - Medulla,11,non_neural
+Colon - Transverse - Mixed Cell,10,non_neural
+Small Intestine - Terminal Ileum - Mixed Cell,10,non_neural
+Pancreas - Mixed Cell,10,non_neural
+Colon - Transverse - Muscularis,9,non_neural
+Small Intestine - Terminal Ileum - Lymphoid Aggregate,9,non_neural
+Liver - Mixed Cell,9,non_neural
+Liver - Hepatocyte,9,non_neural
+Pancreas - Acini,9,non_neural
+Colon - Transverse - Mucosa,8,non_neural
+Pancreas - Islets,3,non_neural
+Liver - Portal Tract,2,non_neural

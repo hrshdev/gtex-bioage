@@ -1,0 +1,2 @@
+model,split,mae,r2,pearson_r,pearson_p,n_train_samples,n_test_samples,n_train_subjects,n_test_subjects,n_overlap_subjects,train_time_sec
+MoE_EN,subject_grouped,7.029866667453177,0.5146366393305927,0.7177461773826843,0.0,15683,3992,744,186,0,96909.8021478653

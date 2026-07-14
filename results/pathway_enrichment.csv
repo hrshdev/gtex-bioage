@@ -1,0 +1,260 @@
+expert,source,term_id,term_name,p_value,fdr,gene_count
+neural,GO:BP,GO:0001822,kidney development,0.015437045597958573,0.015437045597958573,0
+neural,GO:BP,GO:0007166,cell surface receptor signaling pathway,0.015437045597958573,0.015437045597958573,2
+neural,GO:BP,GO:0009607,response to biotic stimulus,0.015437045597958573,0.015437045597958573,0
+neural,GO:BP,GO:1900154,regulation of bone trabecula formation,0.015437045597958573,0.015437045597958573,0
+neural,GO:BP,GO:0050896,response to stimulus,0.015437045597958573,0.015437045597958573,3
+neural,GO:BP,GO:2000427,positive regulation of apoptotic cell clearance,0.015437045597958573,0.015437045597958573,0
+neural,GO:BP,GO:2000425,regulation of apoptotic cell clearance,0.015437045597958573,0.015437045597958573,0
+neural,GO:BP,GO:1900155,negative regulation of bone trabecula formation,0.015437045597958573,0.015437045597958573,0
+neural,GO:BP,GO:0072006,nephron development,0.0165022855680228,0.0165022855680228,0
+neural,GO:BP,GO:0072001,renal system development,0.0165022855680228,0.0165022855680228,0
+neural,GO:BP,GO:0048518,positive regulation of biological process,0.0165022855680228,0.0165022855680228,3
+neural,GO:BP,GO:0032501,multicellular organismal process,0.0165022855680228,0.0165022855680228,0
+neural,GO:BP,GO:0043207,response to external biotic stimulus,0.0165022855680228,0.0165022855680228,0
+neural,GO:BP,GO:0009605,response to external stimulus,0.017816749672316112,0.017816749672316112,0
+neural,GO:BP,GO:0016477,cell migration,0.017816749672316112,0.017816749672316112,0
+neural,GO:BP,GO:0032835,glomerulus development,0.01793451141111919,0.01793451141111919,0
+neural,GO:BP,GO:0030001,metal ion transport,0.018957328702351776,0.018957328702351776,0
+neural,GO:BP,GO:0072009,nephron epithelium development,0.021888764874036733,0.021888764874036733,0
+neural,GO:BP,GO:0048522,positive regulation of cellular process,0.021888764874036733,0.021888764874036733,3
+neural,GO:BP,GO:0043277,apoptotic cell clearance,0.024025784674186625,0.024025784674186625,0
+neural,GO:BP,GO:0051707,response to other organism,0.024251482694082022,0.024251482694082022,0
+neural,GO:BP,GO:0048646,anatomical structure formation involved in morphogenesis,0.024251482694082022,0.024251482694082022,0
+neural,GO:BP,GO:1901700,response to oxygen-containing compound,0.028286241079795185,0.028286241079795185,0
+neural,GO:BP,GO:0002408,myeloid dendritic cell chemotaxis,0.030619481594948858,0.030619481594948858,0
+neural,GO:BP,GO:0006812,monoatomic cation transport,0.03272949367778133,0.03272949367778133,0
+neural,GO:BP,GO:0032879,regulation of localization,0.03272949367778133,0.03272949367778133,0
+neural,GO:BP,GO:0010959,regulation of metal ion transport,0.03272949367778133,0.03272949367778133,0
+neural,GO:BP,GO:0002686,negative regulation of leukocyte migration,0.03272949367778133,0.03272949367778133,0
+neural,GO:BP,GO:0048870,cell motility,0.03272949367778133,0.03272949367778133,0
+neural,GO:BP,GO:0009713,catechol-containing compound biosynthetic process,0.03272949367778133,0.03272949367778133,0
+neural,GO:BP,GO:0048146,positive regulation of fibroblast proliferation,0.03272949367778133,0.03272949367778133,0
+neural,GO:BP,GO:0042423,catecholamine biosynthetic process,0.03272949367778133,0.03272949367778133,0
+neural,GO:BP,GO:0030334,regulation of cell migration,0.03272949367778133,0.03272949367778133,0
+neural,GO:BP,GO:0007507,heart development,0.03350916291443339,0.03350916291443339,0
+neural,GO:BP,GO:0072073,kidney epithelium development,0.036430443665731886,0.036430443665731886,0
+neural,GO:BP,GO:0061326,renal tubule development,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0072080,nephron tubule development,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0140546,defense response to symbiont,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0051239,regulation of multicellular organismal process,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0043410,positive regulation of MAPK cascade,0.03679160267908316,0.03679160267908316,3
+neural,GO:BP,GO:0010138,pyrimidine ribonucleotide salvage,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0009220,pyrimidine ribonucleotide biosynthetic process,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0014721,twitch skeletal muscle contraction,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0032262,pyrimidine nucleotide salvage,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0044206,UMP salvage,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0045686,negative regulation of glial cell differentiation,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0003010,voluntary skeletal muscle contraction,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0002376,immune system process,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0010986,positive regulation of lipoprotein particle clearance,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:2000145,regulation of cell motility,0.03679160267908316,0.03679160267908316,0
+neural,GO:BP,GO:0006952,defense response,0.039888050917219184,0.039888050917219184,0
+neural,GO:BP,GO:0098542,defense response to other organism,0.04090963101012076,0.04090963101012076,0
+neural,GO:BP,GO:0044419,biological process involved in interspecies interaction between organisms,0.04094736543335535,0.04094736543335535,0
+neural,GO:BP,GO:0043408,regulation of MAPK cascade,0.041523052743888636,0.041523052743888636,3
+neural,GO:BP,GO:0042421,norepinephrine biosynthetic process,0.04305634134423285,0.04305634134423285,0
+neural,GO:BP,GO:0072359,circulatory system development,0.04305634134423285,0.04305634134423285,0
+neural,GO:BP,GO:0001837,epithelial to mesenchymal transition,0.04305634134423285,0.04305634134423285,0
+neural,GO:BP,GO:0010889,regulation of triglyceride storage,0.04305634134423285,0.04305634134423285,0
+neural,GO:BP,GO:0008655,pyrimidine-containing compound salvage,0.04305634134423285,0.04305634134423285,0
+neural,GO:BP,GO:0000165,MAPK cascade,0.045606870198421495,0.045606870198421495,3
+neural,GO:BP,GO:0045861,negative regulation of proteolysis,0.045606870198421495,0.045606870198421495,0
+neural,GO:BP,GO:0040012,regulation of locomotion,0.045606870198421495,0.045606870198421495,0
+neural,GO:BP,GO:0006811,monoatomic ion transport,0.04643037041269851,0.04643037041269851,0
+neural,GO:BP,GO:0060485,mesenchyme development,0.04643037041269851,0.04643037041269851,0
+neural,GO:BP,GO:0002495,antigen processing and presentation of peptide antigen via MHC class II,0.049604915206868966,0.049604915206868966,0
+neural,GO:BP,GO:0045602,negative regulation of endothelial cell differentiation,0.049604915206868966,0.049604915206868966,0
+neural,GO:BP,GO:0006810,transport,0.049604915206868966,0.049604915206868966,0
+neural,GO:BP,GO:0030730,triglyceride storage,0.049604915206868966,0.049604915206868966,0
+neural,GO:BP,GO:0048762,mesenchymal cell differentiation,0.04995343058127567,0.04995343058127567,0
+non_neural,GO:BP,GO:0048583,regulation of response to stimulus,0.0006806135680910376,0.0006806135680910376,3
+non_neural,GO:BP,GO:0002376,immune system process,0.002274995079860699,0.002274995079860699,0
+non_neural,GO:BP,GO:0002683,negative regulation of immune system process,0.002274995079860699,0.002274995079860699,0
+non_neural,GO:BP,GO:0002701,negative regulation of production of molecular mediator of immune response,0.002274995079860699,0.002274995079860699,0
+non_neural,GO:BP,GO:0007166,cell surface receptor signaling pathway,0.002274995079860699,0.002274995079860699,2
+non_neural,GO:BP,GO:0007154,cell communication,0.002274995079860699,0.002274995079860699,3
+non_neural,GO:BP,GO:0007155,cell adhesion,0.002274995079860699,0.002274995079860699,0
+non_neural,GO:BP,GO:0002682,regulation of immune system process,0.002274995079860699,0.002274995079860699,0
+non_neural,GO:BP,GO:0032501,multicellular organismal process,0.002274995079860699,0.002274995079860699,0
+non_neural,GO:BP,GO:0035787,cell migration involved in kidney development,0.002274995079860699,0.002274995079860699,0
+non_neural,GO:BP,GO:0050896,response to stimulus,0.002274995079860699,0.002274995079860699,3
+non_neural,GO:BP,GO:0023052,signaling,0.002274995079860699,0.002274995079860699,3
+non_neural,GO:BP,GO:0141124,intracellular signaling cassette,0.0022820120758267584,0.0022820120758267584,3
+non_neural,GO:BP,GO:0009605,response to external stimulus,0.0028730870727910105,0.0028730870727910105,0
+non_neural,GO:BP,GO:0016477,cell migration,0.0035691901998619042,0.0035691901998619042,0
+non_neural,GO:BP,GO:0009966,regulation of signal transduction,0.0035691901998619042,0.0035691901998619042,3
+non_neural,GO:BP,GO:0050789,regulation of biological process,0.0035691901998619042,0.0035691901998619042,3
+non_neural,GO:BP,GO:0044419,biological process involved in interspecies interaction between organisms,0.00475856918321436,0.00475856918321436,0
+non_neural,GO:BP,GO:0032101,regulation of response to external stimulus,0.00475856918321436,0.00475856918321436,0
+non_neural,GO:BP,GO:0032502,developmental process,0.00475856918321436,0.00475856918321436,3
+non_neural,GO:BP,GO:0023051,regulation of signaling,0.004768360258007842,0.004768360258007842,3
+non_neural,GO:BP,GO:0010646,regulation of cell communication,0.004768360258007842,0.004768360258007842,3
+non_neural,GO:BP,GO:0048584,positive regulation of response to stimulus,0.004768360258007842,0.004768360258007842,3
+non_neural,GO:BP,GO:0051716,cellular response to stimulus,0.004768360258007842,0.004768360258007842,3
+non_neural,GO:BP,GO:0014910,regulation of smooth muscle cell migration,0.005101053407957381,0.005101053407957381,0
+non_neural,GO:BP,GO:0051707,response to other organism,0.005274288368912741,0.005274288368912741,0
+non_neural,GO:BP,GO:0043207,response to external biotic stimulus,0.005274288368912741,0.005274288368912741,0
+non_neural,GO:BP,GO:0065007,biological regulation,0.006151431794412662,0.006151431794412662,3
+non_neural,GO:BP,GO:0002697,regulation of immune effector process,0.006151431794412662,0.006151431794412662,0
+non_neural,GO:BP,GO:0001816,cytokine production,0.006151431794412662,0.006151431794412662,0
+non_neural,GO:BP,GO:0050776,regulation of immune response,0.006351022389469779,0.006351022389469779,0
+non_neural,GO:BP,GO:0050865,regulation of cell activation,0.006351022389469779,0.006351022389469779,0
+non_neural,GO:BP,GO:0009607,response to biotic stimulus,0.00635543563085958,0.00635543563085958,0
+non_neural,GO:BP,GO:0014909,smooth muscle cell migration,0.006453264554191344,0.006453264554191344,0
+non_neural,GO:BP,GO:0007165,signal transduction,0.007645844150405123,0.007645844150405123,3
+non_neural,GO:BP,GO:0043124,negative regulation of canonical NF-kappaB signal transduction,0.008648715770264086,0.008648715770264086,0
+non_neural,GO:BP,GO:0032680,regulation of tumor necrosis factor production,0.008726087679816226,0.008726087679816226,0
+non_neural,GO:BP,GO:0032640,tumor necrosis factor production,0.008726087679816226,0.008726087679816226,0
+non_neural,GO:BP,GO:0031347,regulation of defense response,0.008840112268268358,0.008840112268268358,0
+non_neural,GO:BP,GO:0031952,regulation of protein autophosphorylation,0.008840112268268358,0.008840112268268358,0
+non_neural,GO:BP,GO:0033693,neurofilament bundle assembly,0.009031113842451133,0.009031113842451133,0
+non_neural,GO:BP,GO:0099185,postsynaptic intermediate filament cytoskeleton organization,0.009031113842451133,0.009031113842451133,0
+non_neural,GO:BP,GO:0071706,tumor necrosis factor superfamily cytokine production,0.009073421529999593,0.009073421529999593,0
+non_neural,GO:BP,GO:1903555,regulation of tumor necrosis factor superfamily cytokine production,0.009073421529999593,0.009073421529999593,0
+non_neural,GO:BP,GO:0070232,regulation of T cell apoptotic process,0.010861022607421004,0.010861022607421004,0
+non_neural,GO:BP,GO:0002921,negative regulation of humoral immune response,0.011299587762875103,0.011299587762875103,0
+non_neural,GO:BP,GO:0002698,negative regulation of immune effector process,0.011299587762875103,0.011299587762875103,0
+non_neural,GO:BP,GO:0014812,muscle cell migration,0.011423379934230558,0.011423379934230558,0
+non_neural,GO:BP,GO:0048856,anatomical structure development,0.011573196599976373,0.011573196599976373,2
+non_neural,GO:BP,GO:0070887,cellular response to chemical stimulus,0.011573196599976373,0.011573196599976373,0
+non_neural,GO:BP,GO:0001817,regulation of cytokine production,0.011573196599976373,0.011573196599976373,0
+non_neural,GO:BP,GO:0002274,myeloid leukocyte activation,0.01157497719447081,0.01157497719447081,0
+non_neural,GO:BP,GO:0006954,inflammatory response,0.01157497719447081,0.01157497719447081,0
+non_neural,GO:BP,GO:0043031,negative regulation of macrophage activation,0.01157497719447081,0.01157497719447081,0
+non_neural,GO:BP,GO:0006952,defense response,0.011796618710310782,0.011796618710310782,0
+non_neural,GO:BP,GO:0051174,regulation of phosphorus metabolic process,0.011796618710310782,0.011796618710310782,0
+non_neural,GO:BP,GO:0009967,positive regulation of signal transduction,0.011907557477529286,0.011907557477529286,3
+non_neural,GO:BP,GO:0035789,metanephric mesenchymal cell migration,0.012322638075388666,0.012322638075388666,0
+non_neural,GO:BP,GO:2000589,regulation of metanephric mesenchymal cell migration,0.012322638075388666,0.012322638075388666,0
+non_neural,GO:BP,GO:0070235,regulation of activation-induced cell death of T cells,0.012322638075388666,0.012322638075388666,0
+non_neural,GO:BP,GO:0051239,regulation of multicellular organismal process,0.012322638075388666,0.012322638075388666,0
+non_neural,GO:BP,GO:0048870,cell motility,0.012322638075388666,0.012322638075388666,0
+non_neural,GO:BP,GO:0048585,negative regulation of response to stimulus,0.012752504429187418,0.012752504429187418,0
+non_neural,GO:BP,GO:0050727,regulation of inflammatory response,0.013482190906921572,0.013482190906921572,0
+non_neural,GO:BP,GO:2000106,regulation of leukocyte apoptotic process,0.01389294228361165,0.01389294228361165,0
+non_neural,GO:BP,GO:0002700,regulation of production of molecular mediator of immune response,0.014372533222040497,0.014372533222040497,0
+non_neural,GO:BP,GO:0140546,defense response to symbiont,0.014372533222040497,0.014372533222040497,0
+non_neural,GO:BP,GO:0045087,innate immune response,0.01663286414815031,0.01663286414815031,0
+non_neural,GO:BP,GO:0097112,gamma-aminobutyric acid receptor clustering,0.016938576016016723,0.016938576016016723,0
+non_neural,GO:BP,GO:1901700,response to oxygen-containing compound,0.016938576016016723,0.016938576016016723,0
+non_neural,GO:BP,GO:0098542,defense response to other organism,0.016938576016016723,0.016938576016016723,0
+non_neural,GO:BP,GO:0035788,cell migration involved in metanephros development,0.016938576016016723,0.016938576016016723,0
+non_neural,GO:BP,GO:0001775,cell activation,0.016938576016016723,0.016938576016016723,0
+non_neural,GO:BP,GO:0002694,regulation of leukocyte activation,0.016938576016016723,0.016938576016016723,0
+non_neural,GO:BP,GO:2000107,negative regulation of leukocyte apoptotic process,0.01732227569815567,0.01732227569815567,0
+non_neural,GO:BP,GO:0014912,negative regulation of smooth muscle cell migration,0.017424885871408016,0.017424885871408016,0
+non_neural,GO:BP,GO:0010563,negative regulation of phosphorus metabolic process,0.018059187217896257,0.018059187217896257,0
+non_neural,GO:BP,GO:0002237,response to molecule of bacterial origin,0.018059187217896257,0.018059187217896257,0
+non_neural,GO:BP,GO:0050794,regulation of cellular process,0.018059187217896257,0.018059187217896257,3
+non_neural,GO:BP,GO:0045936,negative regulation of phosphate metabolic process,0.018059187217896257,0.018059187217896257,0
+non_neural,GO:BP,GO:0048731,system development,0.018407003499742707,0.018407003499742707,0
+non_neural,GO:BP,GO:0031589,cell-substrate adhesion,0.018491338509862832,0.018491338509862832,0
+non_neural,GO:BP,GO:0048518,positive regulation of biological process,0.018491338509862832,0.018491338509862832,3
+non_neural,GO:BP,GO:0048519,negative regulation of biological process,0.01897943578159909,0.01897943578159909,0
+non_neural,GO:BP,GO:0010647,positive regulation of cell communication,0.01897943578159909,0.01897943578159909,3
+non_neural,GO:BP,GO:0023056,positive regulation of signaling,0.01897943578159909,0.01897943578159909,3
+non_neural,GO:BP,GO:0043030,regulation of macrophage activation,0.01897943578159909,0.01897943578159909,0
+non_neural,GO:BP,GO:0007275,multicellular organism development,0.018996172605871466,0.018996172605871466,0
+non_neural,GO:BP,GO:0070233,negative regulation of T cell apoptotic process,0.019139192544747555,0.019139192544747555,0
+non_neural,GO:BP,GO:0006955,immune response,0.019175629775719467,0.019175629775719467,0
+non_neural,GO:BP,GO:0042116,macrophage activation,0.021120915877917756,0.021120915877917756,0
+non_neural,GO:BP,GO:0070231,T cell apoptotic process,0.021120915877917756,0.021120915877917756,0
+non_neural,GO:BP,GO:0032720,negative regulation of tumor necrosis factor production,0.021778534983168042,0.021778534983168042,0
+non_neural,GO:BP,GO:0034113,heterotypic cell-cell adhesion,0.021778534983168042,0.021778534983168042,0
+non_neural,GO:BP,GO:0070228,regulation of lymphocyte apoptotic process,0.021778534983168042,0.021778534983168042,0
+non_neural,GO:BP,GO:0071219,cellular response to molecule of bacterial origin,0.022606150191263216,0.022606150191263216,0
+non_neural,GO:BP,GO:0042326,negative regulation of phosphorylation,0.022606150191263216,0.022606150191263216,0
+non_neural,GO:BP,GO:1903556,negative regulation of tumor necrosis factor superfamily cytokine production,0.02385465429184099,0.02385465429184099,0
+non_neural,GO:BP,GO:0002252,immune effector process,0.024091681938581796,0.024091681938581796,0
+non_neural,GO:BP,GO:1901652,response to peptide,0.024091681938581796,0.024091681938581796,2
+non_neural,GO:BP,GO:0002440,production of molecular mediator of immune response,0.024091681938581796,0.024091681938581796,0
+non_neural,GO:BP,GO:0042221,response to chemical,0.024091681938581796,0.024091681938581796,2
+non_neural,GO:BP,GO:0006950,response to stress,0.024091681938581796,0.024091681938581796,0
+non_neural,GO:BP,GO:0045445,myoblast differentiation,0.024640981886157813,0.024640981886157813,0
+non_neural,GO:BP,GO:0043122,regulation of canonical NF-kappaB signal transduction,0.024640981886157813,0.024640981886157813,3
+non_neural,GO:BP,GO:0009617,response to bacterium,0.026171227903999485,0.026171227903999485,0
+non_neural,GO:BP,GO:0048513,animal organ development,0.026370439581701623,0.026370439581701623,0
+non_neural,GO:BP,GO:0048522,positive regulation of cellular process,0.026370439581701623,0.026370439581701623,3
+non_neural,GO:BP,GO:0009628,response to abiotic stimulus,0.026783556463529652,0.026783556463529652,0
+non_neural,GO:BP,GO:0071887,leukocyte apoptotic process,0.02861802714015777,0.02861802714015777,0
+non_neural,GO:BP,GO:0032102,negative regulation of response to external stimulus,0.029558970636070738,0.029558970636070738,0
+non_neural,GO:BP,GO:0042325,regulation of phosphorylation,0.029558970636070738,0.029558970636070738,0
+non_neural,GO:BP,GO:0002443,leukocyte mediated immunity,0.029558970636070738,0.029558970636070738,0
+non_neural,GO:BP,GO:0002719,negative regulation of cytokine production involved in immune response,0.029558970636070738,0.029558970636070738,0
+non_neural,GO:BP,GO:0030154,cell differentiation,0.029558970636070738,0.029558970636070738,2
+non_neural,GO:BP,GO:0001788,antibody-dependent cellular cytotoxicity,0.029558970636070738,0.029558970636070738,0
+non_neural,GO:BP,GO:0002831,regulation of response to biotic stimulus,0.029558970636070738,0.029558970636070738,0
+non_neural,GO:BP,GO:0007249,canonical NF-kappaB signal transduction,0.029558970636070738,0.029558970636070738,3
+non_neural,GO:BP,GO:0045110,intermediate filament bundle assembly,0.029558970636070738,0.029558970636070738,0
+non_neural,GO:BP,GO:0048523,negative regulation of cellular process,0.029558970636070738,0.029558970636070738,0
+non_neural,GO:BP,GO:0048869,cellular developmental process,0.029558970636070738,0.029558970636070738,2
+non_neural,GO:BP,GO:0032732,positive regulation of interleukin-1 production,0.030014860784707637,0.030014860784707637,0
+non_neural,GO:BP,GO:0009968,negative regulation of signal transduction,0.030456640016699364,0.030456640016699364,0
+non_neural,GO:BP,GO:0019221,cytokine-mediated signaling pathway,0.030529669024936156,0.030529669024936156,2
+non_neural,GO:BP,GO:0002718,regulation of cytokine production involved in immune response,0.031224705957642797,0.031224705957642797,0
+non_neural,GO:BP,GO:0002367,cytokine production involved in immune response,0.031224705957642797,0.031224705957642797,0
+non_neural,GO:BP,GO:0051049,regulation of transport,0.03223247832718719,0.03223247832718719,0
+non_neural,GO:BP,GO:0009888,tissue development,0.03226001586569518,0.03226001586569518,2
+non_neural,GO:BP,GO:0048660,regulation of smooth muscle cell proliferation,0.03226001586569518,0.03226001586569518,0
+non_neural,GO:BP,GO:0071216,cellular response to biotic stimulus,0.03226001586569518,0.03226001586569518,0
+non_neural,GO:BP,GO:0035556,intracellular signal transduction,0.03226001586569518,0.03226001586569518,3
+non_neural,GO:BP,GO:0032496,response to lipopolysaccharide,0.03236544116287059,0.03236544116287059,0
+non_neural,GO:BP,GO:0002445,type II hypersensitivity,0.03237282429198835,0.03237282429198835,0
+non_neural,GO:BP,GO:0001794,type IIa hypersensitivity,0.03237282429198835,0.03237282429198835,0
+non_neural,GO:BP,GO:0006924,activation-induced cell death of T cells,0.03237282429198835,0.03237282429198835,0
+non_neural,GO:BP,GO:0009719,response to endogenous stimulus,0.03237282429198835,0.03237282429198835,0
+non_neural,GO:BP,GO:0031954,positive regulation of protein autophosphorylation,0.03237282429198835,0.03237282429198835,0
+non_neural,GO:BP,GO:0001819,positive regulation of cytokine production,0.0333758491002875,0.0333758491002875,0
+non_neural,GO:BP,GO:0045859,regulation of protein kinase activity,0.0333758491002875,0.0333758491002875,0
+non_neural,GO:BP,GO:0048659,smooth muscle cell proliferation,0.033522725341390974,0.033522725341390974,0
+non_neural,GO:BP,GO:0010935,regulation of macrophage cytokine production,0.03532275495986858,0.03532275495986858,0
+non_neural,GO:BP,GO:0010934,macrophage cytokine production,0.03532275495986858,0.03532275495986858,0
+non_neural,GO:BP,GO:0009615,response to virus,0.03640357376129751,0.03640357376129751,0
+non_neural,GO:BP,GO:0060052,neurofilament cytoskeleton organization,0.03691307182305502,0.03691307182305502,0
+non_neural,GO:BP,GO:0034115,negative regulation of heterotypic cell-cell adhesion,0.03691307182305502,0.03691307182305502,0
+non_neural,GO:BP,GO:0031348,negative regulation of defense response,0.03691307182305502,0.03691307182305502,0
+non_neural,GO:BP,GO:0040008,regulation of growth,0.03691307182305502,0.03691307182305502,0
+non_neural,GO:BP,GO:0001932,regulation of protein phosphorylation,0.03691307182305502,0.03691307182305502,0
+non_neural,GO:BP,GO:0070587,regulation of cell-cell adhesion involved in gastrulation,0.03691307182305502,0.03691307182305502,0
+non_neural,GO:BP,GO:1904753,negative regulation of vascular associated smooth muscle cell migration,0.03691307182305502,0.03691307182305502,0
+non_neural,GO:BP,GO:1902531,regulation of intracellular signal transduction,0.037464196550886744,0.037464196550886744,3
+non_neural,GO:BP,GO:0045321,leukocyte activation,0.037481809575244,0.037481809575244,0
+non_neural,GO:BP,GO:0016310,phosphorylation,0.03753748216183069,0.03753748216183069,0
+non_neural,GO:BP,GO:0034097,response to cytokine,0.03761604629761062,0.03761604629761062,2
+non_neural,GO:BP,GO:0071356,cellular response to tumor necrosis factor,0.03761604629761062,0.03761604629761062,1
+non_neural,GO:BP,GO:0045745,positive regulation of G protein-coupled receptor signaling pathway,0.03761604629761062,0.03761604629761062,0
+non_neural,GO:BP,GO:0033993,response to lipid,0.03761604629761062,0.03761604629761062,0
+non_neural,GO:BP,GO:0070229,negative regulation of lymphocyte apoptotic process,0.03761604629761062,0.03761604629761062,0
+non_neural,GO:BP,GO:0006468,protein phosphorylation,0.03791322569684042,0.03791322569684042,0
+non_neural,GO:BP,GO:0070663,regulation of leukocyte proliferation,0.03791322569684042,0.03791322569684042,0
+non_neural,GO:BP,GO:0050777,negative regulation of immune response,0.03791322569684042,0.03791322569684042,0
+non_neural,GO:BP,GO:0012501,programmed cell death,0.03814774710510903,0.03814774710510903,1
+non_neural,GO:BP,GO:0051128,regulation of cellular component organization,0.038225679561248484,0.038225679561248484,0
+non_neural,GO:BP,GO:0008219,cell death,0.03868681524888636,0.03868681524888636,1
+non_neural,GO:BP,GO:0050793,regulation of developmental process,0.03868681524888636,0.03868681524888636,0
+non_neural,GO:BP,GO:0071347,cellular response to interleukin-1,0.03869408381500774,0.03869408381500774,0
+non_neural,GO:BP,GO:0051241,negative regulation of multicellular organismal process,0.03869408381500774,0.03869408381500774,0
+non_neural,GO:BP,GO:0070227,lymphocyte apoptotic process,0.03869408381500774,0.03869408381500774,0
+non_neural,GO:BP,GO:0007167,enzyme-linked receptor protein signaling pathway,0.03869408381500774,0.03869408381500774,0
+non_neural,GO:BP,GO:0070586,cell-cell adhesion involved in gastrulation,0.03905563383734994,0.03905563383734994,0
+non_neural,GO:BP,GO:0010936,negative regulation of macrophage cytokine production,0.03905563383734994,0.03905563383734994,0
+non_neural,GO:BP,GO:0071345,cellular response to cytokine stimulus,0.03905563383734994,0.03905563383734994,2
+non_neural,GO:BP,GO:0043549,regulation of kinase activity,0.040552313770543316,0.040552313770543316,0
+non_neural,GO:BP,GO:1902533,positive regulation of intracellular signal transduction,0.04384081078022445,0.04384081078022445,3
+non_neural,GO:BP,GO:0008063,Toll signaling pathway,0.04560448522066799,0.04560448522066799,0
+non_neural,GO:BP,GO:0060379,cardiac muscle cell myoblast differentiation,0.04560448522066799,0.04560448522066799,0
+non_neural,GO:BP,GO:0001909,leukocyte mediated cytotoxicity,0.04569394386358925,0.04569394386358925,0
+non_neural,GO:BP,GO:0033627,cell adhesion mediated by integrin,0.04720024876327639,0.04720024876327639,0
+non_neural,GO:BP,GO:0050866,negative regulation of cell activation,0.04777230562896537,0.04777230562896537,0
+non_neural,GO:BP,GO:0001933,negative regulation of protein phosphorylation,0.048429122018338384,0.048429122018338384,0
+non_neural,GO:BP,GO:0006915,apoptotic process,0.048429122018338384,0.048429122018338384,1
+non_neural,GO:BP,GO:0002920,regulation of humoral immune response,0.048429122018338384,0.048429122018338384,0
+non_neural,GO:BP,GO:0010648,negative regulation of cell communication,0.048429122018338384,0.048429122018338384,0
+non_neural,GO:BP,GO:0040007,growth,0.048429122018338384,0.048429122018338384,0
+non_neural,GO:BP,GO:0023057,negative regulation of signaling,0.048429122018338384,0.048429122018338384,0
+non_neural,GO:BP,GO:0071222,cellular response to lipopolysaccharide,0.048429122018338384,0.048429122018338384,0
+non_neural,GO:BP,GO:0034612,response to tumor necrosis factor,0.04899388139404881,0.04899388139404881,1
+non_neural,GO:BP,GO:0010642,negative regulation of platelet-derived growth factor receptor signaling pathway,0.04971015300542627,0.04971015300542627,0
+non_neural,GO:BP,GO:0043922,host-mediated suppression of viral transcription,0.04971015300542627,0.04971015300542627,0
+non_neural,GO:BP,GO:0032494,response to peptidoglycan,0.04971015300542627,0.04971015300542627,0
