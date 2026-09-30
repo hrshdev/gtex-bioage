@@ -49,20 +49,20 @@ Vagina,168,non_neural
 Uterus,152,non_neural
 Kidney - Cortex,104,non_neural
 Bladder,76,non_neural
-Stomach - Mixed Cell,29,non_neural
 Stomach - Mucosa,29,non_neural
+Stomach - Mixed Cell,29,non_neural
 Fallopian Tube,27,non_neural
 Stomach - Muscularis,26,non_neural
 Cervix - Ectocervix,23,non_neural
 Cervix - Endocervix,21,non_neural
 Kidney - Medulla,11,non_neural
 Colon - Transverse - Mixed Cell,10,non_neural
-Small Intestine - Terminal Ileum - Mixed Cell,10,non_neural
 Pancreas - Mixed Cell,10,non_neural
+Small Intestine - Terminal Ileum - Mixed Cell,10,non_neural
 Colon - Transverse - Muscularis,9,non_neural
+Liver - Hepatocyte,9,non_neural
 Small Intestine - Terminal Ileum - Lymphoid Aggregate,9,non_neural
 Liver - Mixed Cell,9,non_neural
-Liver - Hepatocyte,9,non_neural
 Pancreas - Acini,9,non_neural
 Colon - Transverse - Mucosa,8,non_neural
 Pancreas - Islets,3,non_neural

@@ -1,3 +1,3 @@
 ROUTE,mean,std,count
-neural,0.013,5.588,781
-non_neural,-0.207,7.495,3154
+neural,0.055,5.459,781
+non_neural,-0.21,7.475,3154

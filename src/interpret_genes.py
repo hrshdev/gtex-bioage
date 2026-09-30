@@ -1,10 +1,5 @@
-﻿"""
-Objective 3 — gene interpretation and pathway enrichment.
-
-1. Merge MoE Elastic Net coefficients with gene symbols.
-2. Export top clock genes per expert.
-3. Run g:Profiler enrichment (KEGG + GO:BP) on top-weighted genes.
-4. Save pathway table and bar-chart figure for presentation backup.
+"""
+Objective 3 — gene interpretation and pathway enrichment (Figure 4.16 Polished).
 """
 
 import json
@@ -24,6 +19,7 @@ ANNOTATION_FILE = Path("data/processed/gene_annotation.csv")
 TOP_GENES_FILE = RESULTS_DIR / "top_clock_genes.csv"
 PATHWAY_FILE = RESULTS_DIR / "pathway_enrichment.csv"
 PATHWAY_FIG = FIGURES_DIR / "01_pathway_enrichment.png"
+FIG_4_16_COPY = FIGURES_DIR / "figure4.16.png"
 
 TOP_N_EXPORT = 50
 TOP_N_ENRICH = 150
@@ -84,8 +80,12 @@ def _gprofiler_enrich(gene_symbols, expert_label):
 
     rows = []
     for hit in data.get("result", []) or []:
-        intersections = hit.get("intersections") or []
-        gene_count = len(intersections[0]) if intersections else 0
+        # Get true intersection size from g:Profiler
+        gene_count = hit.get("intersection_size", 0)
+        if not gene_count:
+            intersections = hit.get("intersections") or []
+            gene_count = len(intersections[0]) if intersections else 0
+
         rows.append(
             {
                 "expert": expert_label,
@@ -135,12 +135,10 @@ def run_pathway_enrichment(df):
     return out
 
 
-def _pathway_label(name: str, max_chars: int = 52) -> str:
-    """Wrap long pathway names so labels are not truncated in print."""
+def _pathway_label(name: str, max_chars: int = 40) -> str:
+    """Wrap long pathway names cleanly across max 2 lines with 40-char width."""
     text = str(name).strip()
-    if len(text) <= max_chars:
-        return text
-    return "\n".join(textwrap.wrap(text, width=max_chars))
+    return textwrap.fill(text, width=max_chars)
 
 
 def plot_pathways(pathways):
@@ -159,21 +157,44 @@ def plot_pathways(pathways):
     plot_df = pd.concat(plot_rows, ignore_index=True)
     experts = list(plot_df["expert"].unique())
 
-    # Stacked panels use full thesis width and leave room for long pathway names.
+    # Increased figure height to 5.2 per panel for generous line-height
     fig, axes = plt.subplots(
         len(experts),
         1,
-        figsize=(12, 4.2 * len(experts)),
+        figsize=(11.5, 5.2 * len(experts)),
         squeeze=False,
     )
 
     for ax, expert in zip(axes.flat, experts):
         sub = plot_df[plot_df["expert"] == expert].sort_values("neg_log_p")
         color = "#2E86AB" if expert == "neural" else "#E94F37"
-        ax.barh(sub["label"], sub["neg_log_p"], color=color, height=0.72)
+        
+        # Slightly leaner bar height (0.60) to prevent text crowding
+        bars = ax.barh(sub["label"], sub["neg_log_p"], color=color, height=0.60)
+        
+        max_val = sub["neg_log_p"].max()
+        for bar, count in zip(bars, sub["gene_count"]):
+            width = bar.get_width()
+            ax.text(
+                width + (max_val * 0.018),
+                bar.get_y() + bar.get_height() / 2,
+                f"n={int(count)}",
+                va="center",
+                ha="left",
+                fontsize=10,
+                color="#222222",
+                fontweight="normal",
+            )
+        
+        ax.set_xlim(0, max_val * 1.15)
         ax.set_xlabel(r"$-\log_{10}$(p-value)", fontsize=13)
-        ax.set_title(f"{expert.replace('_', ' ').title()} expert", fontsize=14, fontweight="bold", pad=10)
-        ax.tick_params(axis="both", labelsize=11)
+        
+        # Proper hyphenation for "Non-neural expert"
+        display_title = "Neural expert" if expert == "neural" else "Non-neural expert"
+        ax.set_title(display_title, fontsize=14, fontweight="bold", pad=12)
+        
+        ax.tick_params(axis="y", labelsize=11.5)
+        ax.tick_params(axis="x", labelsize=11)
         ax.grid(axis="x", linestyle="--", alpha=0.35)
         ax.invert_yaxis()
 
@@ -183,12 +204,12 @@ def plot_pathways(pathways):
         fontweight="bold",
         y=0.995,
     )
-    fig.subplots_adjust(left=0.38, right=0.97, top=0.93, bottom=0.08, hspace=0.45)
-    fig.savefig(PATHWAY_FIG, dpi=300, bbox_inches="tight", pad_inches=0.2)
+    fig.subplots_adjust(left=0.34, right=0.95, top=0.93, bottom=0.08, hspace=0.48)
+    
+    fig.savefig(PATHWAY_FIG, dpi=300, bbox_inches="tight", pad_inches=0.15)
+    fig.savefig(FIG_4_16_COPY, dpi=300, bbox_inches="tight", pad_inches=0.15)
     plt.close(fig)
-    log(f"Saved pathway figure -> {PATHWAY_FIG}")
-
-
+    log(f"Saved refined figure -> {PATHWAY_FIG}")
 
 
 def export_tissue_signatures():
