@@ -8,16 +8,16 @@ Machine learning pipeline for estimating biological age from GTEx v11 gene expre
 
 ## Key results (sample-stratified test set, n = 3,935)
 
-| Model | MAE (years) | R² | Pearson r |
-|---|---:|---:|---:|
-| **MoE Elastic Net** | **5.51** | **0.69** | **0.83** |
-| Elastic Net (global) | 5.74 | 0.67 | 0.82 |
-| XGBoost | 7.32 | 0.47 | 0.70 |
-| Random Forest | 9.02 | 0.21 | 0.49 |
-| REG clock | 12.14 | −0.27 | 0.69 |
-| Pasta clock | 45.82 | −15.44 | 0.37 |
+| Model | MAE (years) | R² | Pearson r | Notes |
+|---|---:|---:|---:|---|
+| **MoE Elastic Net (Proposed)** | **5.51** | **0.69** | **0.83** | Two-expert neural / non-neural routing |
+| Elastic Net (global) | 5.74 | 0.67 | 0.82 | Single global model across all tissues |
+| XGBoost | 7.32 | 0.47 | 0.70 | GPU-accelerated gradient boosting |
+| Random Forest | 9.03 | 0.21 | 0.50 | 100 trees, multi-core CPU |
+| REG clock | 12.14 | −0.27 | 0.69 | Salignon et al. (2025) benchmark |
+| Pasta clock | 45.82 | −15.44 | 0.37 | Published transcriptomic clock |
 
-Subject-grouped validation (no donor overlap): MoE MAE **7.03**, Elastic Net **7.24**.
+Subject-grouped validation (no donor overlap across folds): MoE MAE **7.03**, Elastic Net **7.24**.
 
 ---
 
@@ -63,18 +63,18 @@ gtex-bioage/
 │   └── figures/
 │       ├── raw/                     # EDA on raw metadata
 │       ├── preprocessed/            # Cohort EDA (thesis Fig 1.3)
-│       ├── bioage/                  # Age-gap diagnostics
+│       ├── bioage/                  # Age-gap diagnostics (Figs 01–05)
 │       ├── hardy/                   # Hardy-scale sensitivity plots
 │       ├── clocks/                  # REG / Pasta comparison plot
-│       ├── interpretation/
-│       └── outliers/
+│       ├── interpretation/          # Pathway enrichment (Thesis Fig 4.16)
+│       └── outliers/                # Extreme age-gap samples
 ├── src/
-│   ├── preprocess.py                # Chunked preprocessing (low-RAM)
-│   ├── data_utils.py                # Load processed matrices
+│   ├── preprocess.py                # Chunked column preprocessing (low-RAM)
+│   ├── data_utils.py                # Load processed matrices (float32 aligned)
 │   ├── split_utils.py               # Sample- and subject-level splits
 │   ├── moe_utils.py                 # Router, train/predict MoE experts
-│   ├── train_baselines.py           # Elastic Net, RF, XGBoost
-│   ├── train_moe_en.py              # Train two-expert MoE
+│   ├── train_baselines.py           # Elastic Net, RF, XGBoost (GPU supported)
+│   ├── train_moe_en.py              # Train two-expert MoE (+ saves models/)
 │   ├── predict_moe.py               # Inference from saved models
 │   ├── validate_subject_split.py    # Subject-grouped validation
 │   ├── validation_utils.py          # Shared metric helpers for validation
@@ -103,14 +103,12 @@ gtex-bioage/
 ### Requirements
 
 - Python ≥ 3.9
-- Core + plotting stack (covers training, clocks, Hardy analysis, and figure scripts):  
+- Core + plotting stack:  
   `pyarrow`, `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`, `xgboost`, `scipy`, `joblib`, `tqdm`
 
 ```bash
 pip install pyarrow pandas numpy matplotlib seaborn scikit-learn xgboost scipy joblib tqdm jupyterlab
 ```
-
-No extra packages are needed for `analyze_hardy.py` or the `plot_*.py` helpers.
 
 ### 1. Download data
 
@@ -118,7 +116,7 @@ Place GTEx v11 files in `data/raw/` — see [`data/README.md`](data/README.md).
 
 ### 2. Preprocess
 
-Runs in chunks of 500 samples to fit ~8 GB RAM.
+Runs in memory-safe column chunks (configurable `CHUNK_SIZE = 1000` for 12+ GB RAM / Google Colab, or `500` for 8 GB RAM) to stream through 74,628 genes without memory overflow.
 
 ```bash
 cd /path/to/gtex-bioage
@@ -132,16 +130,16 @@ python src/preprocess.py
 Run from the repository root:
 
 ```bash
-python src/train_baselines.py      # Global baselines
+python src/train_baselines.py      # Global baselines (GPU-accelerated XGBoost)
 python src/train_moe_en.py         # Two-expert MoE (+ saves models/)
 python src/compare_clocks.py       # REG & Pasta benchmarks
 python src/analyze_bioage.py       # Age-gap CSV + figures/bioage/
 python src/analyze_hardy.py        # Hardy-scale sensitivity figures
 python src/analyze_outliers.py     # Outlier analysis
-python src/interpret_genes.py      # Top genes + pathway enrichment
+python src/interpret_genes.py      # Top genes + GO/KEGG pathway enrichment
 ```
 
-**Optional — subject-grouped validation** (slow, ~hours):
+**Optional — subject-grouped validation** (no donor overlap):
 
 ```bash
 python src/validate_subject_split.py
@@ -153,11 +151,31 @@ python src/validate_subject_split.py
 python src/predict_moe.py
 ```
 
-**Optional — regenerate EDA / cohort figures** (processed data required):
+**Optional — regenerate EDA / cohort figures:**
 
 ```bash
 python src/plot_preprocessed_tissues.py
 python src/plot_cohort_panels.py
+```
+
+### Google Colab
+
+The pipeline can be executed in Google Colab connected to Google Drive:
+
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+%cd /content/drive/MyDrive/Research/gtex-bioage
+
+# Install dependencies
+!pip install -q pyarrow pandas numpy matplotlib seaborn scikit-learn xgboost scipy joblib tqdm
+
+# Execute pipeline
+!python src/train_baselines.py
+!python src/train_moe_en.py
+!python src/compare_clocks.py
+!python src/analyze_bioage.py
+!python src/interpret_genes.py
 ```
 
 ### Windows (PowerShell)
@@ -180,7 +198,9 @@ Sample → rule-based router (tissue name)
          → one prediction per sample (no weighted expert combination)
 ```
 
-Routing logic lives in `src/moe_utils.py`. Each expert uses `ElasticNetCV` (5-fold) with `StandardScaler` preprocessing.
+- **Routing:** Neural tissues (Brain, Spinal Cord, Tibial Nerve; $n \approx 3{,}113$ training samples) route to the Neural Expert. All other 50 tissues ($n \approx 12{,}627$) route to the Non-Neural Expert.
+- **Regularization:** Each expert uses 5-fold cross-validated `ElasticNetCV` with `StandardScaler` preprocessing across sparse regularization ratios ($L_1 \in [0.5, 1.0]$).
+- **Top Clock Gene:** Identifies canonical cellular senescence marker **`CDKN2A` / *p16INK4a*** (`ENSG00000131080`) as the highest-weighted aging clock gene in both neural ($\beta = 2.29$) and non-neural ($\beta = 4.17$) experts.
 
 ---
 
@@ -188,28 +208,28 @@ Routing logic lives in `src/moe_utils.py`. Each expert uses `ElasticNetCV` (5-fo
 
 | File | Description |
 |---|---|
-| `results/baseline_results.csv` | Global model metrics (sample split) |
-| `results/moe_en_results.csv` | MoE metrics (sample split) |
-| `results/moe_en_results_subject.csv` | MoE metrics (subject-grouped) |
-| `results/clock_benchmark_summary.csv` | MoE vs REG vs Pasta |
-| `results/test_predictions.csv` | Per-sample predictions on test set |
-| `results/bioage_predictions.csv` | Predictions + age gap |
-| `results/moe_gene_coefficients.csv` | Sparse expert coefficients |
-| `results/top_clock_genes.csv` | Top genes per expert |
-| `results/pathway_enrichment.csv` | GO/KEGG enrichment |
-| `models/*.joblib` | Trained experts and scalers |
+| `results/baseline_results.csv` | Global model metrics: Elastic Net, RF, XGBoost |
+| `results/moe_en_results.csv` | MoE metrics on independent test set |
+| `results/moe_en_results_subject.csv` | MoE metrics (subject-grouped cross-validation) |
+| `results/clock_benchmark_summary.csv` | Benchmark: MoE vs REG vs Pasta |
+| `results/test_predictions.csv` | Per-sample test predictions ($n = 3{,}935$) |
+| `results/bioage_predictions.csv` | Sample predictions + calculated biological age gap ($\Delta \text{Age}$) |
+| `results/moe_gene_coefficients.csv` | Sparse gene weights per expert |
+| `results/top_clock_genes.csv` | Top-weighted clock genes per expert |
+| `results/pathway_enrichment.csv` | g:Profiler GO:BP and KEGG enrichment table |
+| `models/*.joblib` | Trained expert models and scalers |
 
 ### Figures
 
 | Folder / file | Content |
 |---|---|
 | `figures/raw/` | EDA on raw GTEx metadata |
-| `figures/preprocessed/` | GTEx v11 processed cohort EDA |
-| `figures/bioage/01–05_*.png` | Calibration, gap distribution, tissue comparison, age bias, error distribution |
-| `figures/hardy/` | Hardy-scale gap and MAE plots |
-| `figures/clocks/clock_comparison.png` | Model comparison bar chart |
-| `figures/interpretation/` | Pathway enrichment plot |
-| `figures/outliers/` | Extreme age-gap scatter plots |
+| `figures/preprocessed/` | GTEx v11 processed cohort EDA (thesis Fig 1.3) |
+| `figures/bioage/01–05_*.png` | Age-gap diagnostics: Calibration, Gap distribution, Tissue comparison, Age bias, Error by decade |
+| `figures/hardy/` | Hardy-scale agonal state confounder check |
+| `figures/clocks/clock_comparison.png` | Model comparison bar chart (MoE vs REG vs Pasta) |
+| `figures/interpretation/01_pathway_enrichment.png` | GO:BP and KEGG pathway enrichment (Thesis Fig 4.16 with wrapped terms and gene count tags $n$) |
+| `figures/outliers/` | Extreme age-gap sample scatter plots |
 
 ---
 
@@ -217,12 +237,12 @@ Routing logic lives in `src/moe_utils.py`. Each expert uses `ElasticNetCV` (5-fo
 
 - [x] Exploratory data analysis (raw + processed)
 - [x] Chunked preprocessing (GTEx v11 → 19,675 × 5,000)
-- [x] Baseline models (Elastic Net, Random Forest, XGBoost)
+- [x] Baseline models (Elastic Net, Random Forest, GPU-accelerated XGBoost)
 - [x] Two-expert Elastic Net MoE (rule-based routing)
 - [x] Sample-stratified and subject-grouped validation
-- [x] Biological age gap analysis
-- [x] Comparison with REG and Pasta clocks
-- [x] Gene and pathway interpretation
+- [x] Biological age gap analysis ($\Delta \text{Age}$)
+- [x] Benchmark comparison against REG and Pasta clocks
+- [x] Gene and pathway interpretation (Figure 4.16 legibility enhancements)
 
 ---
 
@@ -230,7 +250,7 @@ Routing logic lives in `src/moe_utils.py`. Each expert uses `ElasticNetCV` (5-fo
 
 > GTEx Consortium. (2020). The GTEx Consortium atlas of genetic regulatory effects across human tissues. *Science*, 369(6509), 1318–1330.
 
-External clocks benchmarked in this repo: **REG** and **Pasta** (see `results/REG_coeffs.csv`, `results/Pasta_coeffs.csv`).
+External clocks benchmarked in this repo: **REG** (Salignon et al., 2025) and **Pasta** (see `results/REG_coeffs.csv`, `results/Pasta_coeffs.csv`).
 
 ---
 
