@@ -10,10 +10,10 @@ Machine learning pipeline for estimating biological age from GTEx v11 gene expre
 
 | Model | MAE (years) | R² | Pearson r |
 |---|---:|---:|---:|
-| **MoE Elastic Net** | **5.55** | **0.68** | **0.83** |
+| **MoE Elastic Net** | **5.51** | **0.69** | **0.83** |
 | Elastic Net (global) | 5.74 | 0.67 | 0.82 |
-| XGBoost | 7.33 | 0.47 | 0.70 |
-| Random Forest | 8.59 | 0.28 | 0.56 |
+| XGBoost | 7.32 | 0.47 | 0.70 |
+| Random Forest | 9.02 | 0.21 | 0.49 |
 | REG clock | 12.14 | −0.27 | 0.69 |
 | Pasta clock | 45.82 | −15.44 | 0.37 |
 
