@@ -1,6 +1,6 @@
 """
-Biological Age Gap Analysis
-===========================
+Biological Age Gap Analysis (Clean & Portable)
+==============================================
 Analyzes MoE biological-age predictions and writes all figures under
 results/figures/bioage/.
 """
@@ -17,27 +17,12 @@ from plot_style import apply_thesis_style
 # Configuration
 RESULTS_DIR = Path("results")
 FIGURES_DIR = RESULTS_DIR / "figures" / "bioage"
-THESIS_FIGURES_DIR = Path(r"C:\Research\Research\Thesis\figures")
-THESIS_FIGURE_MAP = {
-    "01_calibration_plot.png": "figure4.7.png",
-    "03_tissue_comparison.png": "figure4.8.png",
-    "02_gap_distribution.png": "figure4.9.png",
-    "05_error_by_decade.png": "figure4.10.png",
-    "04_age_dependency.png": "figure4.11.png",
-}
 PREDICTIONS_FILE = RESULTS_DIR / "test_predictions.csv"
 BIOAGE_RESULTS = RESULTS_DIR / "bioage_predictions.csv"
 OUTLIERS_FLAGGED = RESULTS_DIR / "bioage_outliers_flagged.csv"
 
 ROUTE_PALETTE = {"neural": "#1f77b4", "non_neural": "#ff7f0e"}
 SAVE_KW = dict(dpi=300, bbox_inches="tight", pad_inches=0.08)
-
-
-def copy_to_thesis(src: Path, name: str):
-    dest = THESIS_FIGURES_DIR / name
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_bytes(src.read_bytes())
-    log(f"Copied -> {dest}")
 
 
 def log(msg):
@@ -81,7 +66,7 @@ def plot_results(df, mae, r2, r, p):
         {"neural": "Neural", "non_neural": "Non-neural"}
     )
 
-    # 1. Calibration plot (chronological vs predicted)
+    # 1. Calibration plot (chronological vs predicted) -> Thesis Figure 4.7
     fig, ax = plt.subplots(figsize=(9, 8))
     sns.scatterplot(
         data=plot_df,
@@ -118,7 +103,7 @@ def plot_results(df, mae, r2, r, p):
     plt.close(fig)
     log("Saved: 01_calibration_plot.png")
 
-    # 2. Gap distribution
+    # 2. Gap distribution -> Thesis Figure 4.9
     fig, ax = plt.subplots(figsize=(10, 5))
     sns.histplot(plot_df["AGE_GAP"], kde=True, color="skyblue", stat="density", ax=ax)
     ax.axvline(0, color="red", linestyle="--", lw=2)
@@ -129,7 +114,7 @@ def plot_results(df, mae, r2, r, p):
     plt.close(fig)
     log("Saved: 02_gap_distribution.png")
 
-    # 3. Tissue group comparison
+    # 3. Tissue group comparison -> Thesis Figure 4.8
     fig, ax = plt.subplots(figsize=(9, 5))
     sns.violinplot(
         data=plot_df,
@@ -149,7 +134,7 @@ def plot_results(df, mae, r2, r, p):
     plt.close(fig)
     log("Saved: 03_tissue_comparison.png")
 
-    # 4. Age dependency (residuals vs chronological age)
+    # 4. Age dependency (residuals vs chronological age) -> Thesis Figure 4.11
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.scatterplot(
         data=plot_df,
@@ -172,7 +157,7 @@ def plot_results(df, mae, r2, r, p):
     plt.close(fig)
     log("Saved: 04_age_dependency.png")
 
-    # 5. Absolute error by age decade
+    # 5. Absolute error by age decade -> Thesis Figure 4.10
     plot_df["Age decade"] = pd.cut(
         plot_df["AGE_MID"],
         bins=[20, 30, 40, 50, 60, 70, 80],
@@ -203,7 +188,7 @@ def export_flagged_outliers(df: pd.DataFrame, mae: float):
 
 def main():
     log("=" * 60)
-    log("Biological Age Gap Analysis Pipeline")
+    log("Biological Age Gap Analysis Pipeline (Clean & Portable)")
     log("=" * 60)
 
     try:
@@ -223,8 +208,6 @@ def main():
         log(f"Analyzed results saved to {BIOAGE_RESULTS}")
 
         plot_results(df_analyzed, mae, r2, r, p)
-        for src_name, thesis_name in THESIS_FIGURE_MAP.items():
-            copy_to_thesis(FIGURES_DIR / src_name, thesis_name)
         export_flagged_outliers(df_analyzed, mae)
 
         section("Analysis Complete")
