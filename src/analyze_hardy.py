@@ -1,4 +1,4 @@
-"""Hardy scale validation and sensitivity analysis for MoE predictions."""
+"""Hardy scale validation and sensitivity analysis for MoE predictions (Clean & Portable)."""
 
 from pathlib import Path
 
@@ -17,7 +17,6 @@ from plot_style import apply_thesis_style
 
 RESULTS_DIR = Path("results")
 FIGURES_DIR = RESULTS_DIR / "figures" / "hardy"
-THESIS_FIGURES_DIR = Path(r"C:\Research\Research\Thesis\figures")
 
 HARDY_MAP = {
     0: "Ventilator",
@@ -147,7 +146,6 @@ def fast_retrain_without_ventilator(models_dir: Path) -> dict:
 
 def plot_gap_by_hardy(df: pd.DataFrame, out_path: Path):
     apply_thesis_style()
-    data = [df.loc[df["HARDY_LABEL"] == h, "AGE_GAP"].values for h in HARDY_ORDER]
     labels = [h for h in HARDY_ORDER if (df["HARDY_LABEL"] == h).any()]
     data = [df.loc[df["HARDY_LABEL"] == h, "AGE_GAP"].values for h in labels]
     colors = [HARDY_COLORS[h] for h in labels]
@@ -161,7 +159,6 @@ def plot_gap_by_hardy(df: pd.DataFrame, out_path: Path):
 
     bp = ax.boxplot(
         data,
-        labels=labels,
         widths=0.15,
         patch_artist=True,
         showfliers=False,
@@ -171,6 +168,8 @@ def plot_gap_by_hardy(df: pd.DataFrame, out_path: Path):
         patch.set_facecolor(color)
         patch.set_alpha(0.35)
 
+    ax.set_xticks(range(1, len(labels) + 1))
+    ax.set_xticklabels(labels)
     ax.axhline(0, color="gray", linestyle="--", linewidth=1.5)
     ax.set_ylabel("Age gap (predicted − chronological, years)")
     ax.set_title("MoE age gap by Hardy scale (sample-stratified test set)", fontweight="bold")
@@ -216,13 +215,6 @@ def plot_mae_by_hardy(summary: pd.DataFrame, out_path: Path, overall_mae: float)
     plt.close(fig)
 
 
-def copy_to_thesis(src: Path, name: str):
-    dest = THESIS_FIGURES_DIR / name
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_bytes(src.read_bytes())
-    print(f"Copied -> {dest}")
-
-
 def main(retrain: bool = False):
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
     sample_df = load_predictions(RESULTS_DIR / "test_predictions.csv")
@@ -241,11 +233,10 @@ def main(retrain: bool = False):
     sensitivity = pd.DataFrame(sensitivity_rows)
     sensitivity.to_csv(RESULTS_DIR / "hardy_sensitivity_summary.csv", index=False)
 
+    # Save cleanly into results/figures/hardy/
     plot_gap_by_hardy(sample_df, FIGURES_DIR / "01_gap_by_hardy.png")
     overall_mae = metrics_row("primary_all_test", sample_df)["mae"]
     plot_mae_by_hardy(hardy_summary, FIGURES_DIR / "02_mae_by_hardy.png", overall_mae)
-    copy_to_thesis(FIGURES_DIR / "01_gap_by_hardy.png", "figure4.13.png")
-    copy_to_thesis(FIGURES_DIR / "02_mae_by_hardy.png", "figure4.12.png")
 
     donor = donor_level(sample_df)
     kw_stat, kw_p = stats.kruskal(
@@ -261,8 +252,8 @@ def main(retrain: bool = False):
     print(sensitivity.to_string(index=False, float_format=lambda x: f"{x:.3f}"))
     print(f"\nKruskal-Wallis |age gap| by Hardy (samples): p={kw_p:.4g}")
     print(f"Kruskal-Wallis mean gap by Hardy (donors): p={donor_kw_p:.4g}")
-    print(f"\nSaved -> {RESULTS_DIR / 'hardy_prediction_summary.csv'}")
-    print(f"Saved -> {RESULTS_DIR / 'hardy_sensitivity_summary.csv'}")
+    print(f"\nSaved -> {FIGURES_DIR / '01_gap_by_hardy.png'}")
+    print(f"Saved -> {FIGURES_DIR / '02_mae_by_hardy.png'}")
 
 
 if __name__ == "__main__":
